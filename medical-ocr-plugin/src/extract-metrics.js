@@ -14,6 +14,7 @@ export function extractMetrics(text){
       if(match){
         metrics[key] = match[1];
       }
+      
     }
   }
 
