@@ -1,7 +1,8 @@
 
 
 export function parseMetrics(text, local_map) {
-  const metrics = {};
+  //const metrics = {};
+  const metrics = local_map;
 
   const lines = text.split("\n");
 
@@ -11,7 +12,12 @@ export function parseMetrics(text, local_map) {
       const match = regex.exec(line);
 
       if (match) {
-        metrics[key] = match[1];
+        if(metrics[key]==""){
+          metrics[key] = match[1];
+        }
+        else{
+          metrics[key] = "Error xxx";
+        }
       }
     }
   }
