@@ -1,20 +1,33 @@
 import Tesseract from 'tesseract.js';
-import { parseMetrics } from './parse-metrics.js';
 
-export function imageToText(images,local_map) {
+export function imageToText(images) {
 
-    return Tesseract.recognize(images, 'eng+chi_sim')
-        .then(({ data: { text } }) => {
-            //Test
-            throw new Error("Forcing error");
-            //Test
-            return text;
+    const imageList = Array.isArray(images) ? images : [images];
 
+    return Promise.all(
+        imageList.map(image =>
+            Tesseract.recognize(image, 'eng+chi_sim')
+                .then(({ data: { text } })=>{
+                    return text;
+                })
+                .catch(()=>{
+                    //If Image error, add error key;
+                    let text = "";
+                    return text;
+                })
+        )
+    );
 
-        })
-        .catch(() => {
-            //If Image error, add error key;
-            let text = "";
-            return text;
-        });
+    //return Tesseract.recognize(images, 'eng+chi_sim')
+    //    .then(({ data: { text } }) => {
+    //        //Test
+    //        //throw new Error("Forcing error");
+    //        //Test
+    //        return text;
+    //    })
+    //    .catch(() => {
+    //        //If Image error, add error key;
+    //        let text = "";
+    //        return text;
+    //    });
 }
