@@ -1,9 +1,12 @@
 
 
 export function parseMetrics(text, local_map) {
-  //const metrics = {};
-  const metrics = local_map;
 
+  const metrics = local_map;
+  if(text==""){
+    metrics["error"] = "Error wrong image";
+    return metrics;
+  }
   const lines = text.split("\n");
 
   for (const line of lines) {
