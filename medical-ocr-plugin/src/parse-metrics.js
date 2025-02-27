@@ -2,7 +2,7 @@
 
 export function parseMetrics(imageTextArray, local_map) {
   const totalMetrics = {};
-  const count = 0;
+  let count = 0;
 
   imageTextArray.forEach(imageText => {
     //Shallow copy, make sure each pic has new local_map
