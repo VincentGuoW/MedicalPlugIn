@@ -5,3 +5,6 @@
 
 input format会是array of images (e.g., png, jpg, jpeg, ...  
 应该是bytestream
+
+
+fun(array of images, map): if parsing failed: add a new key called error and put error message as value if images contains key in map and value is empty: update key else if value is already in the map: add a new key called error and put error message as value return map
