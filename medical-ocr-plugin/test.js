@@ -1,8 +1,10 @@
 import { extractMetrics } from "./src/extract-metrics.js";
 import fs from 'fs';
 
-const imagePath = "../Request/Sample/1.png";
-const imageBuffer = fs.readFileSync(imagePath); 
+//const imagePath = "../Request/Sample/1.png";
+//const imageBuffer = fs.readFileSync(imagesPath); 
+const imagesPath = ['../Request/Sample/1.png', '../Request/Sample/1.png', '../Request/Sample/1.png'];;
+const imageBuffer = imagesPath.map(imagePath => fs.readFileSync(imagePath));
 
 import local_map from "../Request/local_map.json" with { type: 'json' };
 

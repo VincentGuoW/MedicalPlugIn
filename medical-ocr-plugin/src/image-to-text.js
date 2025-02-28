@@ -11,7 +11,7 @@ export function imageToText(images) {
                     return text;
                 })
                 .catch(()=>{
-                    //If Image error, add error key;
+                    //If Image error, text =="" next step will add error key;
                     let text = "";
                     return text;
                 })
