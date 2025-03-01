@@ -9,7 +9,7 @@ export function parseMetrics(imageTextArray, local_map) {
     const imageMetris = { ...local_map }
     count++;
 
-    //If image error 
+    //If image error:
     if (imageText === "") {
       imageMetris["Error"] = "Picture unable to read";
 
